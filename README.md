@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+Currently using Materialize for prototyping.
+
+Firebase Fire Cloudstore for data.
+
 ## Build Setup
 
 ``` bash
