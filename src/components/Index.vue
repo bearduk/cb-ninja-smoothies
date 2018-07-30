@@ -1,5 +1,5 @@
 <template>
-  <div class="cbform container">
+  <div class="index container">
     <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
       <!-- or wrap (smoothie, index) for a key in a v-for -->
         <div class="card-content">

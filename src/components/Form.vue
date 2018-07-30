@@ -1,5 +1,5 @@
 <template>
-<div class="index container">
+<div class="cbindex container">
     <form name="contact" method="POST" netlify>
     <p>
         <label>Your Name: <input type="text" name="name" /></label>   
