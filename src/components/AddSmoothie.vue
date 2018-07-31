@@ -3,7 +3,7 @@
         <h2 class="center-align indigo-text">
             Add new smoothie recipe
         </h2>
-        <p class="center-align indigo-text">Currently only console logs the title field on submit</p>
+        <p class="center-align indigo-text">Add a smoothie! Not connected up yet. Use tab to add ingredients for now.</p>
         <form @submit.prevent="AddSmoothie">
             <div class="field title">
                 <label for="title">Smoothie Title:</label>
@@ -11,8 +11,13 @@
             </div>
             <div class="field add-ingredient">
                 <label for="add-ingredient">Add an ingredient</label>
-                <input type="text" name="add-ingredient">
+                <input type="text" name="add-ingredient" @keydown.tab.prevent="addIngredient" v-model="another">
             </div>
+            <div v-if="ingredients" v-for="(ing, index) in ingredients" :key="index">
+                <label for="ingredient">Ingredient</label>
+                <input type="text" name="ingredient" v-model="ingredients[index]">
+            </div>
+            <p v-if="feedback" class="red-text">{{feedback}}</p>
             <div class="field center-align">
                 <button class="btn pink">Add Smoothie</button>
             </div>
@@ -25,12 +30,26 @@
         name: 'AddSmoothie',
         data(){
             return {
-                title: ''
+                title: '',
+                another: null,
+                ingredients: [],
+                feedback: null
             }
         },
         methods: {
             AddSmoothie(){
-                console.log(this.title)
+                console.log(this.title + ' ' + this.ingredients);
+
+            },
+            addIngredient(){
+                if (this.another) {
+                    this.ingredients.push(this.another);
+                    this.another = null
+                    console.log(this.ingredients);
+                    this.feedback = null;
+                } else {
+                    this.feedback = 'You must enter a value to add an ingredient'
+                }
             }
         }
     }
