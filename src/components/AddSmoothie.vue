@@ -26,20 +26,47 @@
 </template>
 
 <script>
+import db from '@/firebase/init';
+import slugify from 'slugify';
+
     export default {
         name: 'AddSmoothie',
         data(){
             return {
-                title: '',
+                title: null,
                 another: null,
                 ingredients: [],
-                feedback: null
+                feedback: null,
+                slug: null
             }
         },
         methods: {
             AddSmoothie(){
                 console.log(this.title + ' ' + this.ingredients);
 
+                if (this.title){
+                    // create slug
+                    this.slug = slugify(this.title, {
+                        replacement: '-',
+                        remove: /[$*~+-.()'"!\-:@]/g,
+                        lower: true
+                    })
+                    this.feedback = null;
+                    console.log(this.slug);
+                    
+                    db.collection('smoothies').add({
+                        title: this.title,
+                        ingredients: this.ingredients,
+                        slug: this.slug
+                    }).then(() => {
+                        this.$router.push({name: 'Index'});
+                    }).catch(err => {
+                        console.log(err);
+                        
+                    })
+                } else {
+                    this.feedback = "You must enter a smoothie title."
+                }
             },
             addIngredient(){
                 if (this.another) {
