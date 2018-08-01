@@ -30,4 +30,14 @@
     .navbar nav {
         padding: 0 20px;
     }
+    .navbar nav span {
+        transition: all .2s ease-out;
+    }
+    .navbar nav span:hover {
+        transition: all .5s ease-out;
+        transform: rotate3d(1, 1, 1, -5deg) translateX(-10px);
+    }
+    .navbar nav span:hover:after { 
+        content:' home';
+    }
 </style>
