@@ -13,7 +13,7 @@
                 <label for="add-ingredient">Add an ingredient</label>
                 <input type="text" name="add-ingredient" @keydown.tab.prevent="addIngredient" v-model="another">
             </div>
-            <div v-if="ingredients" v-for="(ing, index) in ingredients" :key="index">
+            <div v-if="ingredients" v-for="(ing, index) in ingredients" :key="index" class="field add-ingredient">
                 <label for="ingredient">Ingredient</label>
                 <input type="text" name="ingredient" v-model="ingredients[index]">
 
@@ -103,5 +103,14 @@ import slugify from 'slugify';
 }
 .add-smoothie .field {
     margin: 20px auto;
+    position: relative;
+}
+.add-smoothie .delete {
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+        color: #aaa;
+        font-size: 1.4em;
+        cursor: pointer;
 }
 </style>
