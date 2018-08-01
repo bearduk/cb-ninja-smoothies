@@ -5,7 +5,10 @@
         <div class="card-content">
           <i class="material-icons delete" @click="deleteSmoothie(smoothie.id)">delete</i>
           <h2 class="indigo-text">
-            {{smoothie.title}}
+            <router-link :to="{name: 'EditSmoothie', params: {smoothie_slug: smoothie.slug}}">
+                {{smoothie.title}}
+            </router-link>
+            
           </h2>
           <ul class="ingredients">
             <li v-for="(ingredient, index) in smoothie.ingredients" :key="index">
