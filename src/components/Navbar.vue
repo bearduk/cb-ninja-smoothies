@@ -37,7 +37,16 @@
         transition: all .5s ease-out;
         transform: rotate3d(1, 1, 1, -5deg) translateX(-10px);
     }
+
+    .navbar nav span:after { 
+        content:' home';
+        opacity: 0;
+                transition: all .1s ease-out;
+
+    }
     .navbar nav span:hover:after { 
         content:' home';
+        opacity: 1;
+        transition: all .2s ease-out;
     }
 </style>
