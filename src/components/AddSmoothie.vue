@@ -3,7 +3,7 @@
         <h2 class="center-align indigo-text">
             Add new smoothie recipe
         </h2>
-        <p class="center-align indigo-text">Add a smoothie! Not connected up yet. Use tab to add ingredients for now.</p>
+        <p class="center-align indigo-text">Go ahead and add your smoothie.</p>
         <form @submit.prevent="AddSmoothie">
             <div class="field title">
                 <label for="title">Smoothie Title:</label>
