@@ -34,7 +34,7 @@
         transition: all .2s ease-out;
     }
     .navbar nav span:hover {
-        transition: all .5s ease-out;
+        transition: all .3s ease-out;
         transform: rotate3d(1, 1, 1, -5deg) translateX(-10px);
     }
 
@@ -47,6 +47,6 @@
     .navbar nav span:hover:after { 
         content:' home';
         opacity: 1;
-        transition: all .2s ease-out;
+        transition: all .2s ease-in;
     }
 </style>
