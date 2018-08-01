@@ -16,6 +16,9 @@
             <div v-if="ingredients" v-for="(ing, index) in ingredients" :key="index">
                 <label for="ingredient">Ingredient</label>
                 <input type="text" name="ingredient" v-model="ingredients[index]">
+
+                <i class="material-icons delete" @click="deleteIngredient(ingredients[index])">delete</i>
+
             </div>
             <p v-if="feedback" class="red-text">{{feedback}}</p>
             <div class="field center-align">
@@ -77,6 +80,12 @@ import slugify from 'slugify';
                 } else {
                     this.feedback = 'You must enter a value to add an ingredient'
                 }
+            },
+            deleteIngredient(ing){
+                this.ingredients = this.ingredients.filter((ingredient) =>{
+                    return ingredient != ing;
+                })
+                console.log(this.ingredients);
             }
         }
     }
