@@ -16,8 +16,8 @@ home</i></p></router-link>
                 <input type="text" name="title" v-model="smoothie.title">
             </div>
             <div class="field add-ingredient">
-                <label for="add-ingredient">Add an ingredient</label>
-                <input type="text" name="add-ingredient" @keydown.tab.prevent="addIngredient" v-model="another">
+                <label for="add-ingredient">Add an ingredient (press enter)</label>
+                <input type="text" name="add-ingredient" @keydown.enter.prevent="addIngredient" v-model="another">
             </div>
             <div v-if="smoothie.ingredients" v-for="(ing, index) in smoothie.ingredients" :key="index" class="field add-ingredient">
                 <label for="ingredient">Ingredient</label>
